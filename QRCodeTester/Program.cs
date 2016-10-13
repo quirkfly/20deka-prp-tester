@@ -15,7 +15,7 @@ namespace QRCodeTester
         static void Main(string[] args)
         {
             PurchaseReceipt purchaseReceipt = new PurchaseReceipt(1, 1);
-            for (ushort i = 1; i < 101; i++)
+            for (ushort i = 1; i < 150; i++)
             {
                 purchaseReceipt.Add(new PurchaseItem(i.ToString(), i));
             }
