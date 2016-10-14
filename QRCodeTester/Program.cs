@@ -15,12 +15,20 @@ namespace QRCodeTester
         static void Main(string[] args)
         {
             PurchaseReceipt purchaseReceipt = new PurchaseReceipt(1, 1);
+            purchaseReceipt.customerCardId = "63400950019900345";
+
             for (ushort i = 1; i < 150; i++)
             {
                 purchaseReceipt.Add(new PurchaseItem(i.ToString(), i));
             }
-            Bitmap qrCodeImage = purchaseReceipt.CreateQRCode();
-            qrCodeImage.Save("c:\\tmp\\qrcode.png");            
+
+            PurchaseReceiptProcessor purchaseReceiptProcessor = new PurchaseReceiptProcessor();
+            PurchaseResult purchaseResult = purchaseReceiptProcessor.Process(purchaseReceipt);
+
+            if (purchaseResult.purchaseQRCode != null)
+            {
+                purchaseResult.purchaseQRCode.Save("c:\\tmp\\qrcode.png");
+            }
         }
     }
 }

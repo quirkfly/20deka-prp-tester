@@ -14,14 +14,6 @@ namespace QRCodeTester
         }
     }
 
-    class InvalidAmountException : Exception
-    {
-        public InvalidAmountException(string message)
-            : base(message)
-        {
-        }
-    }
-
     class InvalidSellerIdException : Exception
     {
         public InvalidSellerIdException(string message)
